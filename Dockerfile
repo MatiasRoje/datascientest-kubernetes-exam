@@ -1,9 +1,9 @@
-FROM python:3.8.10
- 
+FROM python:3.11-slim
+
 WORKDIR /app
 COPY . /app
- 
-RUN python -m pip install pip==20.0.2
+
+RUN python -m pip install pip==24.2
 RUN pip install -r /app/requirements.txt
 
 EXPOSE 5000

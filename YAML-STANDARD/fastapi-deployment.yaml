@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose -f docker-compose.yml convert
+    kompose.version: 1.26.1 (a9d05d509)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: fastapi
+  name: fastapi
+  namespace: standard
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      io.kompose.service: fastapi
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose -f docker-compose.yml convert
+        kompose.version: 1.26.1 (a9d05d509)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/apinetwork: "true"
+        io.kompose.service: fastapi
+    spec:
+      containers:
+        - image: matiasroje/optimized-fastapi
+          name: fastapi
+          ports:
+            - containerPort: 5000
+          resources: {}
+      imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+status: {}
