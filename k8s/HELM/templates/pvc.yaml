@@ -1,15 +1,13 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  creationTimestamp: null
-  labels:
-    io.kompose.service: postgres-data
   name: postgres-data
-  namespace: standard
+  namespace: helm
+  labels:
+    app: postgres
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
-status: {}
+      storage: 4Gi

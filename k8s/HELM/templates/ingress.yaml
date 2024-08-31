@@ -2,16 +2,12 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: fastapi-ingress
-  namespace: standard
+  namespace: helm
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
-  tls:
-    - hosts:
-        - kubernetes-stand.matiasroje-devops.dns-dynamic.net
-      secretName: fastapi-tls
   rules:
-    - host: kubernetes-stand.matiasroje-devops.dns-dynamic.net
+    - host: {{ .Values.ingress.host }}
       http:
         paths:
           - path: /

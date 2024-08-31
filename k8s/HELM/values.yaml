@@ -1,0 +1,27 @@
+fastapi:
+  replicaCount: 3
+  image:
+    repository: matiasroje/optimized-fastapi
+    tag: latest
+  pullPolicy: IfNotPresent
+
+postgres:
+  image:
+    repository: postgres
+    tag: 12.0-alpine
+  postgresPassword: password
+  postgresUser: admin
+  postgresDb: storedb
+  pullPolicy: IfNotPresent
+
+pgadmin:
+  image:
+    repository: dpage/pgadmin4
+    tag: latest
+  pgadminDefaultEmail: admin@admin.com
+  pgadminDefaultPassword: root
+  pullPolicy: IfNotPresent
+
+ingress:
+  host: k8s.matiasroje-devops.dns-dynamic.net
+

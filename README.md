@@ -1,7 +1,3 @@
-# kubernetes-devops-project
+# datascientest-kubernetes-exam
 
-If you come from the Kubernetes training, you're in the right place ! :) 
-
-Run the application :
-
-docker-compose up -d
+My solution for the Datascientest exam.
