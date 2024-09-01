@@ -1,0 +1,18 @@
+resources:
+  - ../../base
+
+namespace: kustomize
+
+configMapGenerator:
+  - name: postgres-config
+    envs:
+      - postgres-configmap.env
+
+secretGenerator:
+  - name: postgres-secret
+    envs:
+      - postgres-secret.env
+
+  - name: pgadmin-secret
+    envs:
+      - pgadmin-secret.env

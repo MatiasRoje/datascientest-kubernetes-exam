@@ -1,0 +1,7 @@
+resources:
+  - postgres-data-pvc.yaml
+  - db-statefulset-svc.yaml
+  - pgadmin-deployment-svc.yaml
+  - fastapi-deployment-svc.yaml
+  - fastapi-ingress.yaml
+  - fastapi-hpa.yaml
